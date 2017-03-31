@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>conditional</title>
+</head>
+<body>
+
+<div id="app1">
+    <h1 v-if="ok">Yes</h1>
+    <h1 v-else>No</h1>
+
+    <template v-if="ok">
+        <h1>title</h1>
+        <p>Paragraph</p>
+        <p>Paragraph</p>
+    </template>
+
+    <div>
+        <div v-if="Math.random() > 0.5">
+            Sorry
+        </div>
+        <div v-else>Not Sorry</div>
+    </div>
+
+    <p v-if="type === 'A'">A</p>
+    <p v-else-if="type === 'B'">B</p>
+    <p v-else-if="type === 'C'">C</p>
+    <p v-else>Not A/B/C</p>
+
+    <template v-if="loginType === 'username'">
+        <label for="_input1">Username</label>
+        <input type="text" id="_input1" placeholder="Enter your username" key="input-username">
+    </template>
+    <template v-else="">
+        <label for="input2">Email</label>
+        <input type="email" id="input2" placeholder="Enter your email" key="input-email">
+    </template>
+    <p><button @click="onChange">Change Login Type</button></p>
+
+    <p v-show="ok">Show</p>
+</div>
+
+<div id="app2">
+    <ul>
+        <li v-for="item of items">name: {{item.name}}, age: {{item.age}}</li>
+    </ul>
+
+    <template v-for="(value, key, index) in object">
+        <p>{{index + 1}}. {{key}}: {{value}}</p>
+    </template>
+
+    <template>
+        <p>Max Age user name is: {{maxUserName}}</p>
+    </template>
+
+    <template>
+        <p>Min Age user name is: {{minUserName}}</p>
+    </template>
+
+    <template v-for="n in 10">
+        <span>{{n}}, </span>
+        <span>{{-n}} </span>
+    </template>
+</div>
+
+<div id="app3">
+    <p><input type="text" v-model="newTodoText" @keyup.enter="addNewTodo" placeholder="Add a todo"></p>
+    <p>{{errorMsg}}</p>
+    <ul>
+        <li
+                is="todo-item"
+                v-for="(todo, index) in todos"
+                v-bind:title="todo"
+                v-on:remove="todos.splice(index, 1)"
+        ></li>
+    </ul>
+</div>
+
+<div id="app4">
+    <p>
+        <button @click="items.push(items.length + 1)">Push</button>
+        <button @click="items.pop()">Pop</button>
+        <button @click="items.shift()">Shift</button>
+        <button @click="items.reverse()">Reverse</button>
+        <button @click="items.length = 0">Length zero not refresh</button>
+        <button @click="items.splice(0)">Length zero</button>
+    </p>
+    <template>
+        <p><span v-for="item in items">{{item}} </span></p>
+    </template>
+</div>
+
+<script src="../js/lib/axios.js"></script>
+<script src="../js/lib/lodash.min.js"></script>
+<script src="../js/lib/vue.js"></script>
+<script src="../js/main/conditional.js"></script>
+</body>
+</html>

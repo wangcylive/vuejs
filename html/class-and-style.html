@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>class and style</title>
+</head>
+<body>
+
+<p id="app1" :class="{active: isActive}" :class="[isActive, isActive]">Class Active</p>
+
+<p id="app2" :class="classObject">Class Object</p>
+
+<div id="app3">
+    <my-component class="boo baz"></my-component>
+    <my-component class="boo baz"></my-component>
+    <my-component class="boo baz"></my-component>
+</div>
+
+<p id="app4">
+    <child message="hello"></child>
+</p>
+
+<div id="app5">
+    <input type="text" v-model="parentMsg">
+    <child-input :my-message="parentMsg"></child-input>
+</div>
+
+<div id="app6" :style="styleObject">app6</div>
+
+<script src="../js/lib/vue.js"></script>
+<script src="../js/main/class-and-style.js"></script>
+</body>
+</html>

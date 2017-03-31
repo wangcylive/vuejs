@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>components</title>
+</head>
+<body>
+
+<div id="app1">
+    <child my-message="Hello!"></child>
+</div>
+
+<hr>
+
+<div id="app2">
+    <input type="text" v-model="parentMsg">
+    <br><br>
+    <child v-bind:my-message="parentMsg"></child>
+</div>
+
+<hr>
+
+<div id="app3">
+    <button type="button" @click="click">Show value</button>
+    <comp v-bind:some-prop="1"></comp>
+</div>
+
+<hr>
+
+<div id="app4">
+    <my-components message="#app4-1"></my-components>
+    <my-components message="#app4-2"></my-components>
+</div>
+
+<hr>
+
+<div id="app5">
+    <my-components1 message="hello" v-bind:time="{name: 'vue.js'}"></my-components1>
+    <my-components1 v-bind:time="{}"></my-components1>
+</div>
+
+<hr>
+
+<div id="app6">
+    <p>{{total}}</p>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+</div>
+
+<hr>
+
+<div id="app7">
+    <currency-input v-model="price"></currency-input>
+</div>
+
+<hr>
+
+<div id="app8">
+    <currency-input label="Price" v-model="price"></currency-input>
+    <currency-input label="Shopping" v-model="shopping"></currency-input>
+    <currency-input label="Handing" v-model="handing"></currency-input>
+    <currency-input label="Discount" v-model="discount"></currency-input>
+
+    <p>Total: ${{total}}</p>
+</div>
+
+<script src="../js/lib/vue.js"></script>
+<script src="../js/main/components.js"></script>
+</body>
+</html>

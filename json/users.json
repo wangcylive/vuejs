@@ -1,0 +1,18 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "data": [
+    {
+      "name": "wangcy",
+      "age": "27"
+    },
+    {
+      "name": "bobi",
+      "age": "24"
+    },
+    {
+      "name": "wjun",
+      "age": "29"
+    }
+  ]
+}

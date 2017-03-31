@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>vue.js</title>
+</head>
+<body>
+<h1 id="app1">{{message}}</h1>
+
+<div id="app2">
+    <span v-bind:data-title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+    </span>
+</div>
+
+<div id="app3">
+    <p v-if="seen">Now you see me</p>
+</div>
+
+<div id="app4">
+    <ol>
+        <li v-for="todo in todos">
+            {{todo.text}}
+        </li>
+    </ol>
+</div>
+
+<div id="app5">
+    <p>{{message}}</p>
+    <button type="button" v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+<div id="app6">
+    <p>{{message}}</p>
+    <input type="text" v-model="message">
+</div>
+
+<div id="app7">
+    <ol>
+        <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+    </ol>
+</div>
+
+<div id="app8" v-html="rawHtml"></div>
+
+<div id="app9" v-bind:class="className">
+    <button type="button" v-bind:disabled="btnDisabled" v-bind:data-title="title">Button</button>
+</div>
+
+<div id="app10" :class="'list-' + id">
+    <p>{{ (Math.round(number) * 10 + 20) / 10 }}</p>
+    <p>{{ ok ? 'yes' : 'no' }}</p>
+    <p>{{ message.split('').reverse().join('') }}</p>
+</div>
+
+<div id="app11">
+    <a href="https://www.baidu.com" @click.prevent="onClick">百度一下</a>
+</div>
+
+<script src="../js/lib/vue.js"></script>
+<script src="../js/main/index.js"></script>
+</body>
+</html>

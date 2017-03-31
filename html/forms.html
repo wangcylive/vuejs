@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>forms</title>
+</head>
+<body>
+
+<div id="app1">
+    <input type="text" v-model="message1" @input="messageInput" placeholder="edit me"><br>
+    <p>Message is: {{message1}}</p>
+
+    <hr>
+
+    <span>Multiline message is:</span>
+    <p><pre>{{message2}}</pre></p>
+    <textarea v-model="message2" placeholder="add multiple lines" cols="80" rows="8"></textarea>
+
+    <hr>
+
+    <p><label><input type="checkbox" v-model="checkbox1" value="1">{{checkbox1}}</label></p>
+
+    <hr>
+
+    <p>
+        <label><input type="checkbox" v-model="checkbox2" value="Jack">Jack</label>
+        <label><input type="checkbox" v-model="checkbox2" value="John">John</label>
+        <label><input type="checkbox" v-model="checkbox2" value="Mike">Mike</label>
+        <br>
+        <span>Checked names: {{checkbox2}}</span>
+    </p>
+
+    <hr>
+
+    <p>
+        <label><input type="radio" value="One" v-model="picked">One</label>
+        <label><input type="radio" value="Two" v-model="picked">Two</label>
+        <br>
+        <span>Picked: {{picked}}</span>
+    </p>
+
+    <hr>
+
+    <p>
+        <select v-model="selected1">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+        <br>
+        <span>Selected1: {{selected1}}</span>
+
+        <br>
+
+        <select v-model="selected2" multiple>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <br>
+        <span>Selected2: {{selected2}}</span>
+    </p>
+
+    <hr>
+    
+    <p>
+        <select v-model="selected3">
+            <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+        </select>
+        <br>
+        <span>Selected3: {{selected3}}</span>
+    </p>
+
+    <hr>
+    <p>
+        <label><input type="radio" v-model="radio1" v-bind:value="a">radio1</label>
+        <br>
+        <span>Radio1: {{radio1}}</span>
+
+        <br>
+
+        <input
+                type="checkbox"
+                v-model="toggle"
+                v-bind:true-value="a"
+                v-bind:false-value="b"
+        ><br>
+        <span>Toggle: {{toggle}}</span>
+    </p>
+
+    <hr>
+
+    <p>
+        <input type="text" v-model.lazy="message3" placeholder="Enter message.">
+        <br>
+        <span>Message3: {{message3}}</span>
+        <br><br>
+        <input type="text" v-model.trim="message4" placeholder="Enter message.">
+        <br>
+        <span>Message4: {{message4}}</span>
+        <br><br>
+        <input type="number" v-model.number="number" placeholder="Enter number">
+        <br>
+        <span>Number: {{number}}</span>
+    </p>
+</div>
+
+<script src="../js/lib/vue.js"></script>
+<script src="../js/main/forms.js"></script>
+</body>
+</html>
